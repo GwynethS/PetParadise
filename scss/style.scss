@@ -164,4 +164,16 @@ footer{
     }
 }
 
+@keyframes zoom-in-out{
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+    transform: scale(1.1); 
+    }
+    100% {
+    transform: scale(1);
+    }
+}
+
 @import "index.scss", "shop.scss", "contact.scss";
