@@ -137,6 +137,17 @@ footer .footer-copyright {
   text-align: center;
 }
 
+@keyframes zoom-in-out {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
 .home-banner {
   height: 80vh;
   background-color: #FFF4E9;
@@ -168,6 +179,7 @@ footer .footer-copyright {
   border: none;
   color: #FFFFFF;
   transition: transform 0.5s ease;
+  animation: zoom-in-out 1s ease;
 }
 .home-banner .banner-info .btn-shop-now:hover {
   cursor: pointer;
@@ -213,6 +225,67 @@ footer .footer-copyright {
 }
 .categories-container .category-row .category-card h3 {
   margin: 1.5rem 0;
+}
+
+.shop-banner {
+  height: 70vh;
+  background-image: url("../img/shop-banner-pets.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+.shop-banner p {
+  position: relative;
+  top: 1.5rem;
+  font-style: italic;
+  font-weight: 600;
+  color: #C3A29E;
+  width: 50%;
+  height: fit-content;
+  padding: 0.8rem 2rem;
+  border-radius: 20rem;
+  font-size: 1.3rem;
+  background-color: rgba(255, 255, 255, 0.351);
+}
+
+.shop-container {
+  margin: 3rem 0;
+}
+.shop-container .search-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.shop-container .search-bar .search-input {
+  font-size: 1rem;
+  width: 40%;
+  height: 3rem;
+  border-radius: 1.5rem;
+  border: 1px solid #d8c5a4;
+  outline: none;
+  padding: 1rem 4rem 1rem 1rem;
+}
+.shop-container .search-bar .btn-search {
+  position: relative;
+  right: 3rem;
+  height: 4rem;
+  border-radius: 2rem;
+  border: none;
+  padding: 0 1.5rem;
+  background-color: #E8DBC5;
+  transition: transform 0.5s ease;
+}
+.shop-container .search-bar .btn-search:hover {
+  cursor: pointer;
+  background-color: #d8c5a4;
+  transform: scale(1.1);
+}
+.shop-container .search-bar .btn-search i {
+  font-size: 1.2rem;
 }
 
 .contact-page-container {

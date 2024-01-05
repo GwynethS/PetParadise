@@ -1,3 +1,14 @@
+@keyframes zoom-in-out{
+    0% {
+        transform: scale(1); 
+    }
+    50% {
+    transform: scale(1.1); 
+    }
+    100% {
+    transform: scale(1);
+    }
+}
 .home-banner
 {
     height: 80vh;
@@ -28,6 +39,7 @@
             border: none;
             color: #FFFFFF;
             transition: transform 0.5s ease;
+            animation: zoom-in-out 1s ease;
             &:hover{
                 cursor: pointer;
                 transform: scale(1.1);
