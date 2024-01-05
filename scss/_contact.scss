@@ -1,0 +1,84 @@
+.contact-page-container{
+    display: flex;
+    margin: auto;
+    .contact-page-container-left{
+        padding: 3rem 1rem 3rem 7rem;
+        width: 50%;
+        .contact-form{
+            width: 80%;
+            text-align: center;
+            .contact-form-box{
+                display: flex;
+                flex-direction: column;
+                margin: 1.5rem 0;
+                label{
+                    text-align: start;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                    font-weight: 600;
+                }
+                .input-box{
+                    width: 100%;
+                    position: relative;
+                    i{
+                        position:absolute;
+                        top: 35%;
+                        left: 0.8rem;
+                        color: #383838;
+                    }
+                    input{
+                        width: 100%;
+                        outline: none;
+                        border: 1px solid #858585;
+                        border-radius: 1rem;
+                        height: 3rem;
+                        padding: 1rem 2.5rem;
+                    }
+                }
+                textarea{
+                    width: 100%;
+                    border-radius: 1rem;
+                    border: 1px solid #858585;
+                    resize: none;
+                    outline: none;
+                    padding: 2rem;
+                }
+            }
+            .btn-send-contact{
+                padding: 0.7rem 1rem;
+                border-radius: 1rem;
+                font-weight: 600;
+                font-size: 1rem;
+                background-color: black;
+                border: none;
+                color: #FFFFFF;
+                transition: transform 0.5s ease;
+                &:hover{
+                    cursor: pointer;
+                    transform: scale(1.1);
+                }
+                i{
+                    margin: 0 0.5rem;
+                }
+            }
+        }
+    }
+    .contact-page-container-right{
+        background-color: $color-rosa-palido;
+        width: 50%;
+        padding: 3rem;
+        display: flex;
+        align-items: center;
+        figure{
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 20rem 18rem 0 15rem;
+            img{
+                width: 100%;
+                object-fit: cover;
+            }
+        }
+    }
+    
+}
