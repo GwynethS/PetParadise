@@ -39,6 +39,9 @@
         &:focus{
             border: 2px solid #d8c5a4;
         }
+        &:hover{
+            border: 2px solid #d8c5a4;
+        }
     }
     .btn-search{
         position: relative;
@@ -257,7 +260,7 @@
                 }
             }
         }
-        .page-navigation{
+        .pagination{
             margin: 2rem;
             width: 100%;
             display: flex;
@@ -265,10 +268,9 @@
             align-items: center;
             gap: 1rem;
             input{
-                border: solid 1px #c2c2c2;
-                //background-color: $color-palo-rosa;
-                //color: #FFFFFF;
-                color:$color-palo-rosa;
+                border: none;
+                background-color: $color-palo-rosa;
+                color: #FFFFFF;
                 border-radius: 50%;
                 height: 3rem;
                 width: 3rem;

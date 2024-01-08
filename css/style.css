@@ -270,6 +270,9 @@ footer .footer-copyright {
 .search-bar .search-input:focus {
   border: 2px solid #d8c5a4;
 }
+.search-bar .search-input:hover {
+  border: 2px solid #d8c5a4;
+}
 .search-bar .btn-search {
   position: relative;
   right: 3rem;
@@ -474,7 +477,7 @@ footer .footer-copyright {
   cursor: pointer;
   transform: scale(1.1);
 }
-.shop-container .shop-products-container .page-navigation {
+.shop-container .shop-products-container .pagination {
   margin: 2rem;
   width: 100%;
   display: flex;
@@ -482,9 +485,10 @@ footer .footer-copyright {
   align-items: center;
   gap: 1rem;
 }
-.shop-container .shop-products-container .page-navigation input {
-  border: solid 1px #c2c2c2;
-  color: #C3A29E;
+.shop-container .shop-products-container .pagination input {
+  border: none;
+  background-color: #C3A29E;
+  color: #FFFFFF;
   border-radius: 50%;
   height: 3rem;
   width: 3rem;
@@ -493,21 +497,21 @@ footer .footer-copyright {
   font-size: 1.2rem;
   font-weight: 700;
 }
-.shop-container .shop-products-container .page-navigation input:focus {
+.shop-container .shop-products-container .pagination input:focus {
   border: solid 2px #C3A29E;
 }
-.shop-container .shop-products-container .page-navigation input[type=number] {
+.shop-container .shop-products-container .pagination input[type=number] {
   -moz-appearance: none;
 }
-.shop-container .shop-products-container .page-navigation input[type=number]::-webkit-inner-spin-button {
+.shop-container .shop-products-container .pagination input[type=number]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.shop-container .shop-products-container .page-navigation input[type=number]::-webkit-outer-spin-button {
+.shop-container .shop-products-container .pagination input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-.shop-container .shop-products-container .page-navigation button {
+.shop-container .shop-products-container .pagination button {
   font-size: 1.5rem;
   height: 2.2rem;
   width: 2.2rem;
@@ -517,14 +521,14 @@ footer .footer-copyright {
   color: #C3A29E;
   transition: transform 0.5s ease;
 }
-.shop-container .shop-products-container .page-navigation button:hover {
+.shop-container .shop-products-container .pagination button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-.shop-container .shop-products-container .page-navigation .btn-previous-page {
+.shop-container .shop-products-container .pagination .btn-previous-page {
   box-shadow: 1px 5px 10px #C3A29E;
 }
-.shop-container .shop-products-container .page-navigation .btn-next-page {
+.shop-container .shop-products-container .pagination .btn-next-page {
   box-shadow: -1px 5px 10px #C3A29E;
 }
 
