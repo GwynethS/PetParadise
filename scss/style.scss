@@ -95,7 +95,6 @@ header{
                         transform: scale(1.1);
                     }
                 }
-                
             }
         }
     }
@@ -176,4 +175,4 @@ footer{
     }
 }
 
-@import "index.scss", "shop.scss", "contact.scss";
+@import "index.scss", "shop.scss", "contact.scss", "cart.scss";

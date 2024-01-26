@@ -33,6 +33,41 @@
             </div>
         </nav>
     </header>
+    <section class="cart-block-container">
+        <div class="cart-block">
+            <div class="cart-header">
+                <h3>Mi carrito</h3>
+                <button><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="cart-items-container">
+                <div class="cart-item">
+                    <figure><img src="../img/category-clothes.jpg" alt=""></figure>
+                    <div class="product-info">
+                        <p>Producto 1</p>
+                        <p>Precio</p>
+                    </div>
+                    <div class="product-quantity">
+                        <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
+                        <input type="number" value="1">
+                        <button class="btn-plus"><i class="fa-solid fa-plus"></i></button>
+                    </div>
+                    <div class="product-subtotal">
+                        <p>Subtotal</p>
+                    </div>
+                    <div class="product-remove">
+                        <button><i class="fa-solid fa-trash"></i></button>
+                    </div>
+                </div>
+            </div>
+            <div class="cart-total">
+                <p>Total</p>
+                <p id="cart-total-price">Precio</p>
+            </div>
+            <div class="cart-buttons">
+                <button id="btn-checkout">Checkout</button>
+            </div>
+        </div>
+    </section>
     <main>
         <div class="shop-banner">
             <p data-aos="zoom-in" data-aos-duration="1000">"Descubre el paraíso de productos para tus mascotas. Calidad, variedad y felicidad para cada miembro peludo de tu familia. ¡Explora y encuentra el regalo perfecto para tus compañeros de vida en Pet Paradise!"</p>
@@ -177,10 +212,11 @@
         </div>
         <div class="footer-copyright">&copy; 2024 PetParadise. Todos los derechos reservados.</div>
     </footer>
-    <script src="../js/tienda.js"></script>
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init();
     </script>
+    <!--<script src="../js/tienda.js"></script>-->
 </body>
 </html>
