@@ -27,41 +27,22 @@
                 <div class="user-login">
                     <i class="fas fa-user"></i>
                 </div>
-                <div class="shopping-cart">
+                <div id="shopping-cart-icon-nav" class="shopping-cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
             </div>
         </nav>
     </header>
-    <section class="cart-block-container">
-        <div class="cart-block">
+    <section id="cart-block-container" class="cart-block-container">
+        <div id="cart-block" class="cart-block">
             <div class="cart-header">
                 <h3>Mi carrito</h3>
-                <button><i class="fa-solid fa-xmark"></i></button>
+                <button id="btn-close-cart" ><i class="fa-solid fa-xmark"></i></button>
             </div>
-            <div class="cart-items-container">
-                <div class="cart-item">
-                    <figure><img src="../img/category-clothes.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <p>Producto 1</p>
-                        <p>Precio</p>
-                    </div>
-                    <div class="product-quantity">
-                        <button class="btn-minus"><i class="fa-solid fa-minus"></i></button>
-                        <input type="number" value="1">
-                        <button class="btn-plus"><i class="fa-solid fa-plus"></i></button>
-                    </div>
-                    <div class="product-subtotal">
-                        <p>Subtotal</p>
-                    </div>
-                    <div class="product-remove">
-                        <button><i class="fa-solid fa-trash"></i></button>
-                    </div>
-                </div>
-            </div>
+            <div id="cart-items-container" class="cart-items-container"></div>
             <div class="cart-total">
                 <p>Total</p>
-                <p id="cart-total-price">Precio</p>
+                <p id="cart-total-price">S/. 0</p>
             </div>
             <div class="cart-buttons">
                 <button id="btn-checkout">Checkout</button>
@@ -73,106 +54,59 @@
             <p data-aos="zoom-in" data-aos-duration="1000">"Descubre el paraíso de productos para tus mascotas. Calidad, variedad y felicidad para cada miembro peludo de tu familia. ¡Explora y encuentra el regalo perfecto para tus compañeros de vida en Pet Paradise!"</p>
         </div>
         <div class="search-bar">
-            <input class="search-input" placeholder="Buscar..." type="text">
-            <button class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input id="input-search-bar" class="search-input" placeholder="Buscar..." type="text">
+            <button id="btn-search-bar" class="btn-search"><i class="fa-solid fa-magnifying-glass"></i></button>
         </div>
         <div class="shop-container">
             <div class="shop-filter">
                 <div class="order-by-filter">
                     <h3>Ordenar por</h3>
                     <div class="order-by-option">
-                        <input type="radio" name="order-by-list" id="ob-descending">
-                        <label for="ob-descending">Precio de mayor a menor</label>
+                        <input type="radio" name="order-by-list" id="DSC">
+                        <label for="DSC">Precio de mayor a menor</label>
                     </div>
                     <div class="order-by-option">
-                        <input type="radio" name="order-by-list" id="ob-ascending">
-                        <label for="ob-ascending">Precio de menor a mayor</label>
+                        <input type="radio" name="order-by-list" id="ASC">
+                        <label for="ASC">Precio de menor a mayor</label>
                     </div>
                 </div>
                 <div class="category-filter">
                     <h3>Categorías</h3>
                     <div class="category-option">
-                        <input type="radio" name="category-filter-list" id="c-clothes">
-                        <label for="c-clothes">Ropa</label>
+                        <input type="checkbox" name="category-filter-list" id="clothes">
+                        <label for="clothes">Ropa</label>
                     </div>
                     <div class="category-option">
-                        <input type="radio" name="category-filter-list" id="c-accessories">
-                        <label for="c-accessories">Accesorios</label>
+                        <input type="checkbox" name="category-filter-list" id="accessories">
+                        <label for="accessories">Accesorios</label>
                     </div>
                     <div class="category-option">
-                        <input type="radio" name="category-filter-list" id="c-toys">
-                        <label for="c-toys">Juguetes</label>
+                        <input type="checkbox" name="category-filter-list" id="toys">
+                        <label for="toys">Juguetes</label>
                     </div>
                     <div class="category-option">
-                        <input type="radio" name="category-filter-list" id="c-food">
-                        <label for="c-food">Comida</label>
+                        <input type="checkbox" name="category-filter-list" id="food">
+                        <label for="food">Comida</label>
                     </div>
                 </div>
                 <div class="price-filter">
                     <h3>Precio</h3>
                     <div class="price-option">
                         <label for="min-price">Min</label>
-                        <input type="text" id="min-price">
+                        <input type="number" id="min-price">
                     </div>
                     <div class="price-option">
                         <label for="max-price">Max</label>
-                        <input type="text" id="max-price">
+                        <input type="number" id="max-price">
                     </div>
                 </div>
             </div>
-            <div class="shop-products-container">
-                <div class="product-card">
-                    <figure><img src="../img/category-clothes.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 1</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <figure><img src="../img/category-accessories.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 2</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <figure><img src="../img/category-toys.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 3</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <figure><img src="../img/category-food.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 4</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <figure><img src="../img/category-food.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 5</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="product-card">
-                    <figure><img src="../img/category-food.jpg" alt=""></figure>
-                    <div class="product-info">
-                        <h4>Producto 6</h4>
-                        <p>Precio</p>
-                        <button class="btn-add-cart">Agregar</button>
-                    </div>
-                </div>
-                <div class="pagination">
-                    <button class="btn-previous-page"><i class="fa-solid fa-caret-left"></i></button>
-                    <input type="number" value="1">
-                    <button class="btn-next-page"><i class="fa-solid fa-caret-right"></i></button>
+            <div id="shop-products-container" class="shop-products-container">
+                
+                <div id="pagination-shop" class="pagination">
+                    <button id="btn-previous-page-products" class="btn-previous-page"><i class="fa-solid fa-caret-left"></i></button>
+                    <input id="current-page-products" type="number" value="1">
+                    <button id="btn-next-page-products" class="btn-next-page"><i class="fa-solid fa-caret-right"></i></button>
                 </div>
             </div>
         </div>
@@ -217,6 +151,6 @@
     <script>
         AOS.init();
     </script>
-    <script src="../js/tienda.js"></script>
+    <script type="module" src="../js/tienda.js"></script>
 </body>
 </html>

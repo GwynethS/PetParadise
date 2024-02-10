@@ -156,28 +156,20 @@
                     border: solid 1px #878787;
                     width: 1rem;
                     height: 1rem;
-                    border-radius: 50%;
                     place-content: center;
                     display: grid;
                     margin-right: 0.5rem;
-                    &[type="radio"]
+                    &[type="checkbox"]
                     {
                         -webkit-appearance: none;
-                        &::before{
-                            content: "";
-                            width: 0.6rem;
-                            height: 0.6rem;
-                            border-radius: 50%;
-                            transition: 120ms transform ease-in-out;
-                            transform: scale(0);
-                            border: solid 1px $color-palo-rosa;
-                            box-shadow: inset 1rem 1rem $color-palo-rosa;
-                        }
-                        &:checked::before{
-                            transform: scale(1);
-                        }
                         &:checked{
+                            background-color: $color-palo-rosa;
                             border: solid 1px $color-palo-rosa;
+                            &::before{
+                                content: "\2713";
+                                color: white;
+                                font-weight: 700;
+                            }
                         }
                     }
                     &:hover{
@@ -192,11 +184,13 @@
             }
             .price-option{
                 padding: 0.8rem;
+                display: flex;
+                align-items: center;
                 label{
                     margin-right: 1rem;
                 }
                 input{
-                    width: 10rem;
+                    width: 8rem;
                     outline: none;
                     border: 1px solid #878787;
                     border-radius: 1rem;

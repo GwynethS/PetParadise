@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   padding: 0;
   margin: 0;
@@ -380,29 +381,21 @@ footer .footer-copyright {
   border: solid 1px #878787;
   width: 1rem;
   height: 1rem;
-  border-radius: 50%;
   place-content: center;
   display: grid;
   margin-right: 0.5rem;
 }
-.shop-container .shop-filter .category-filter .category-option input[type=radio] {
+.shop-container .shop-filter .category-filter .category-option input[type=checkbox] {
   -webkit-appearance: none;
 }
-.shop-container .shop-filter .category-filter .category-option input[type=radio]::before {
-  content: "";
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  transition: 120ms transform ease-in-out;
-  transform: scale(0);
+.shop-container .shop-filter .category-filter .category-option input[type=checkbox]:checked {
+  background-color: #C3A29E;
   border: solid 1px #C3A29E;
-  box-shadow: inset 1rem 1rem #C3A29E;
 }
-.shop-container .shop-filter .category-filter .category-option input[type=radio]:checked::before {
-  transform: scale(1);
-}
-.shop-container .shop-filter .category-filter .category-option input[type=radio]:checked {
-  border: solid 1px #C3A29E;
+.shop-container .shop-filter .category-filter .category-option input[type=checkbox]:checked::before {
+  content: "✓";
+  color: white;
+  font-weight: 700;
 }
 .shop-container .shop-filter .category-filter .category-option input:hover {
   border: solid 2px #C3A29E;
@@ -412,12 +405,14 @@ footer .footer-copyright {
 }
 .shop-container .shop-filter .price-filter .price-option {
   padding: 0.8rem;
+  display: flex;
+  align-items: center;
 }
 .shop-container .shop-filter .price-filter .price-option label {
   margin-right: 1rem;
 }
 .shop-container .shop-filter .price-filter .price-option input {
-  width: 10rem;
+  width: 8rem;
   outline: none;
   border: 1px solid #878787;
   border-radius: 1rem;

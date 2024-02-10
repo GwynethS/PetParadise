@@ -27,12 +27,28 @@
                 <div class="user-login">
                     <i class="fas fa-user"></i>
                 </div>
-                <div class="shopping-cart">
+                <div id="shopping-cart-icon-nav" class="shopping-cart">
                     <i class="fa-solid fa-cart-shopping"></i>
                 </div>
             </div>
         </nav>
     </header>
+    <section id="cart-block-container" class="cart-block-container">
+        <div id="cart-block" class="cart-block">
+            <div class="cart-header">
+                <h3>Mi carrito</h3>
+                <button id="btn-close-cart" ><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div id="cart-items-container" class="cart-items-container"></div>
+            <div class="cart-total">
+                <p>Total</p>
+                <p id="cart-total-price">S/. 0</p>
+            </div>
+            <div class="cart-buttons">
+                <button id="btn-checkout">Checkout</button>
+            </div>
+        </div>
+    </section>
     <main>
         <div class="home-banner">
             <div class="banner-info">
@@ -46,19 +62,19 @@
         <div class="categories-container">
             <h2>CATEGORÍAS</h2>
             <div class="category-row">
-                <div class="category-card">
+                <div id="card-clothes" class="category-card">
                     <figure><img src="./img/category-clothes.jpg" alt="ropa para mascotas"></figure>
                     <h3>ROPA</h3>
                 </div>
-                <div class="category-card">
+                <div id="card-accessories" class="category-card">
                     <figure><img src="./img/category-accessories.jpg" alt="accesorios para mascotas"></figure>
                     <h3>ACCESORIOS</h3>
                 </div>
-                <div class="category-card">
+                <div id="card-toys" class="category-card">
                     <figure><img src="./img/category-toys.jpg" alt="juguetes para mascotas"></figure>
                     <h3>JUGUETES</h3>
                 </div>
-                <div class="category-card">
+                <div id="card-food" class="category-card">
                     <figure><img src="./img/category-food.jpg" alt="comida para mascotas"></figure>
                     <h3>COMIDA</h3>
                 </div>
@@ -104,5 +120,6 @@
     <script>
         AOS.init();
     </script>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
