@@ -13,6 +13,7 @@ const previusPageProducts = document.getElementById(
 const nextPageProducts = document.getElementById("btn-next-page-products");
 const currentPageProducts = document.getElementById("current-page-products");
 
+//FILTER ELEMENTS
 const orderByRadioButtons = document.querySelectorAll('input[name="order-by-list"]');
 const categoryCheckBoxes = document.querySelectorAll('input[name="category-filter-list"]');
 
@@ -56,6 +57,19 @@ function loadFiltersChecked(){
 
 loadFiltersChecked();
 
+// SHOPPING CART
+
+shoppingCartIconNav.addEventListener("click", () => {
+  shoppingCart.showCartProducts();
+  shoppingCart.showCartTotalPayment();
+});
+
+btnCloseCart.addEventListener("click", () => {
+  shoppingCart.closeCart();
+});
+
+//SEARCH BAR
+
 function searchProduct(){
   const text = searchBarInput.value.trim();
   shop.searchByName = text;
@@ -68,6 +82,8 @@ searchBarInput.addEventListener("keyup", (event) => {
 
 btnSearchBar.addEventListener("click", searchProduct);
 
+// ORDER BY FILTER
+
 orderByRadioButtons.forEach(button => {
   button.addEventListener('change', (event) => {
     const selectedValue = event.target.id;
@@ -75,6 +91,8 @@ orderByRadioButtons.forEach(button => {
     shop.filterProducts();
   });
 });
+
+// CATEGORY FILTER
 
 categoryCheckBoxes.forEach(checkbox => {
   checkbox.addEventListener('change', () => {
@@ -85,6 +103,8 @@ categoryCheckBoxes.forEach(checkbox => {
     shop.filterProducts();
   })
 });
+
+// PRICE FILTER
 
 minPriceInput.addEventListener('change', () => {
   const minPrice = parseFloat(minPriceInput.value) || 0;
@@ -98,6 +118,7 @@ minPriceInput.addEventListener('change', () => {
   }
 
 });
+
 maxPriceInput.addEventListener('change', () => {
   const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
 
@@ -110,15 +131,7 @@ maxPriceInput.addEventListener('change', () => {
   }
 });
 
-
-shoppingCartIconNav.addEventListener("click", () => {
-  shoppingCart.showCartProducts();
-  shoppingCart.showCartTotalPayment();
-});
-
-btnCloseCart.addEventListener("click", () => {
-  shoppingCart.closeCart();
-});
+// PAGINATION 
 
 previusPageProducts.addEventListener("click", () => {
   if (currentPageProducts.value > 1) {

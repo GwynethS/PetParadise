@@ -3,7 +3,7 @@ export class ShoppingCart {
     this.cartBlockContainer = document.getElementById("cart-block-container");
     this.cartItemssContainer = document.getElementById("cart-items-container");
     this.cartTotalPriceElement = document.getElementById("cart-total-price");
-    this.products = JSON.parse(sessionStorage.getItem("cartProducts")) || [];
+    this.products = this.getProductsFormSessionStorage();
     this.totalPayment = 0;
   }
 
@@ -19,8 +19,8 @@ export class ShoppingCart {
     sessionStorage.setItem("cartProducts", JSON.stringify(this.products));
   }
 
-  getProductsFormLocalStorage(){
-    this.products = JSON.parse(sessionStorage.getItem("cartProducts")) || [];
+  getProductsFormSessionStorage(){
+    return JSON.parse(sessionStorage.getItem("cartProducts")) || [];
   }
 
   addProduct(product) {
@@ -58,6 +58,15 @@ export class ShoppingCart {
     alert("Gracias por tu compra.");
   }
 
+  updateQuantityProducts(div, input, product){
+    product.quantity = input.value;
+    product.subTotal = product.quantity * product.price;
+
+    div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
+    this.showCartTotalPayment();
+    this.saveInSessionStorage();
+  }
+
   showCartProducts() {
     this.cartItemssContainer.innerHTML = "";
 
@@ -93,43 +102,18 @@ export class ShoppingCart {
       btnMinus.addEventListener("click", () => {
         if (inputProductQuantity.value > 1) {
           inputProductQuantity.value--;
-          product.quantity = inputProductQuantity.value;
-          product.subTotal = product.quantity * product.price;
-
-          div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
-          this.showCartTotalPayment();
-          this.saveInSessionStorage();
+          this.updateQuantityProducts(div, inputProductQuantity, product);
         }
       });
 
       btnPlus.addEventListener("click", () => {
         inputProductQuantity.value++;
-        product.quantity = inputProductQuantity.value;
-        product.subTotal = product.quantity * product.price;
-
-        div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
-        this.showCartTotalPayment();
-        this.saveInSessionStorage();
+        this.updateQuantityProducts(div, inputProductQuantity, product);
       });
 
       inputProductQuantity.addEventListener("change", () =>{
-        if (inputProductQuantity.value > 0) {
-          product.quantity = inputProductQuantity.value;
-          product.subTotal = product.quantity * product.price;
-
-          div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
-          this.showCartTotalPayment();
-          this.saveInSessionStorage();
-        }
-        else{
-          inputProductQuantity.value = 1;
-          product.quantity = inputProductQuantity.value;
-          product.subTotal = product.quantity * product.price;
-
-          div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
-          this.showCartTotalPayment();
-          this.saveInSessionStorage();
-        }
+        inputProductQuantity.value = inputProductQuantity.value > 0 ? inputProductQuantity.value : 1;
+        this.updateQuantityProducts(div, inputProductQuantity, product);
       })
 
       let btnRemoveCartProduct = document.getElementById(`btn-remove-cart-product-${product.id}`);
