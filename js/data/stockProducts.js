@@ -4,14 +4,14 @@ export const stockProducts = [
     name: "Abrigo de Invierno",
     price: 50,
     category: "clothes",
-    imgUrl: "/img/category-clothes.jpg",
+    imgUrl: "../img/category-clothes.jpg",
   },
   {
     id: 2,
     name: "Collar Elegante",
     price: 20,
     category: "accessories",
-    imgUrl: "/img/category-accessories.jpg",
+    imgUrl: "../img/category-accessories.jpg",
   },
   {
     id: 3,
