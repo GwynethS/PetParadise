@@ -60,6 +60,8 @@ loadFiltersChecked();
 // SHOPPING CART
 
 shoppingCartIconNav.addEventListener("click", () => {
+  console.log("NAV");
+  shoppingCart.updateProducts();
   shoppingCart.showCartProducts();
   shoppingCart.showCartTotalPayment();
 });

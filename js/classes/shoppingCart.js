@@ -23,12 +23,21 @@ export class ShoppingCart {
     return JSON.parse(sessionStorage.getItem("cartProducts")) || [];
   }
 
+  updateProducts(){
+    this.products = this.getProductsFormSessionStorage();
+    console.log(this.products);
+  }
+
   addProduct(product) {
+    this.updateProducts();
+    console.log("ADD:", this.products)
     const productInCart = this.products.find((item) => item.id === product.id);
 
     if (productInCart) {
       const productInCartIndex = this.products.indexOf(productInCart);
+      console.log(this.products[productInCartIndex]);
       this.products[productInCartIndex].quantity += 1;
+      console.log(this.products[productInCartIndex]);
       this.products[productInCartIndex].subTotal = productInCart.quantity * productInCart.price;
     } else {
       const newProduct = {
@@ -58,8 +67,8 @@ export class ShoppingCart {
     alert("Gracias por tu compra.");
   }
 
-  updateQuantityProducts(div, input, product){
-    product.quantity = input.value;
+  updateQuantityProducts(div, inputValue, product){
+    product.quantity = inputValue;
     product.subTotal = product.quantity * product.price;
 
     div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
@@ -69,7 +78,7 @@ export class ShoppingCart {
 
   showCartProducts() {
     this.cartItemssContainer.innerHTML = "";
-
+    console.log("SHOW: ",this.products);
     this.products.forEach((product) => {
       let div = document.createElement("div");
       div.classList.add("cart-item");
@@ -95,24 +104,23 @@ export class ShoppingCart {
 
       let btnMinus = document.getElementById(`btn-minus-quantity-${product.id}`);
       let btnPlus = document.getElementById(`btn-plus-quantity-${product.id}`);
-      let inputProductQuantity = document.getElementById(
-        `input-product-quantity-${product.id}`
-      );
+      let inputProductQuantity = document.getElementById(`input-product-quantity-${product.id}`);
+      let inputProductQuantityValue = Number(inputProductQuantity.value);
 
       btnMinus.addEventListener("click", () => {
-        if (inputProductQuantity.value > 1) {
-          inputProductQuantity.value--;
-          this.updateQuantityProducts(div, inputProductQuantity, product);
+        if (inputProductQuantityValue > 1) {
+          inputProductQuantity.value = --inputProductQuantityValue;
+          this.updateQuantityProducts(div, inputProductQuantityValue, product);
         }
       });
 
       btnPlus.addEventListener("click", () => {
-        inputProductQuantity.value++;
-        this.updateQuantityProducts(div, inputProductQuantity, product);
+        inputProductQuantity.value = ++inputProductQuantityValue;
+        this.updateQuantityProducts(div, inputProductQuantityValue, product);
       });
 
       inputProductQuantity.addEventListener("change", () =>{
-        inputProductQuantity.value = inputProductQuantity.value > 0 ? inputProductQuantity.value : 1;
+        inputProductQuantity.value = inputProductQuantityValue > 0 ? inputProductQuantityValue : 1;
         this.updateQuantityProducts(div, inputProductQuantity, product);
       })
 
