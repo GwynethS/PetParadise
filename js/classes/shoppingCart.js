@@ -25,19 +25,15 @@ export class ShoppingCart {
 
   updateProducts(){
     this.products = this.getProductsFormSessionStorage();
-    console.log(this.products);
   }
 
   addProduct(product) {
     this.updateProducts();
-    console.log("ADD:", this.products)
     const productInCart = this.products.find((item) => item.id === product.id);
 
     if (productInCart) {
       const productInCartIndex = this.products.indexOf(productInCart);
-      console.log(this.products[productInCartIndex]);
       this.products[productInCartIndex].quantity += 1;
-      console.log(this.products[productInCartIndex]);
       this.products[productInCartIndex].subTotal = productInCart.quantity * productInCart.price;
     } else {
       const newProduct = {
@@ -78,7 +74,6 @@ export class ShoppingCart {
 
   showCartProducts() {
     this.cartItemssContainer.innerHTML = "";
-    console.log("SHOW: ",this.products);
     this.products.forEach((product) => {
       let div = document.createElement("div");
       div.classList.add("cart-item");
