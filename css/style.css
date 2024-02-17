@@ -560,11 +560,25 @@ footer .footer-copyright {
   width: 100%;
   position: relative;
 }
-.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box i {
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box .icon-field {
   position: absolute;
   top: 35%;
   left: 0.8rem;
   color: #383838;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box .icon-valid {
+  display: none;
+  position: absolute;
+  top: 35%;
+  right: 0.8rem;
+  color: #077e19;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box .icon-error {
+  display: none;
+  position: absolute;
+  top: 35%;
+  right: 0.8rem;
+  color: #d93025;
 }
 .contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box input {
   width: 100%;
@@ -574,13 +588,62 @@ footer .footer-copyright {
   height: 3rem;
   padding: 1rem 2.5rem;
 }
-.contact-page-container .contact-page-container-left .contact-form .contact-form-box textarea {
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box input:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box input:hover {
+  border: 2px solid #747474;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box textarea {
   width: 100%;
   border-radius: 1rem;
   border: 1px solid #858585;
   resize: none;
   outline: none;
   padding: 2rem;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box textarea:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box .input-box textarea:hover {
+  border: 2px solid #747474;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box .error-feedback {
+  display: none;
+  color: #d93025;
+  margin-top: 0.5rem;
+  text-align: start;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box .icon-valid {
+  display: block;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box input {
+  border: 1px solid #077e19;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box input:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box input:hover {
+  box-shadow: 0 0 0.5rem #29b829;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box textarea {
+  border: 1px solid #077e19;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box textarea:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box.valid .input-box textarea:hover {
+  box-shadow: 0 0 0.5rem #29b829;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box .icon-error {
+  display: block;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box input {
+  border: 1px solid #d93025;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box input:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box input:hover {
+  box-shadow: 0 0 0.5rem #d93025;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box textarea {
+  border: 1px solid #d93025;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box textarea:focus, .contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .input-box textarea:hover {
+  box-shadow: 0 0 0.5rem #d93025;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box.error .error-feedback {
+  display: block;
+}
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box:nth-child(3) .input-box .icon-valid,
+.contact-page-container .contact-page-container-left .contact-form .contact-form-box:nth-child(3) .input-box .icon-error {
+  top: 85%;
 }
 .contact-page-container .contact-page-container-left .contact-form .btn-send-contact {
   padding: 0.7rem 1rem;
@@ -589,7 +652,7 @@ footer .footer-copyright {
   font-size: 1rem;
   background-color: black;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   transition: transform 0.5s ease;
   animation: zoom-in-out 2s ease;
 }

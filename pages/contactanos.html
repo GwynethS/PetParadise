@@ -1,109 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="icon" href="../petParadiseFavicon.ico" type="image/x-icon">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="icon" href="../petParadiseFavicon.ico" type="image/x-icon" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../css/style.css" />
     <title>Contáctanos | Pet Paradise</title>
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <nav>
-            <div class="nav-logo"><img src="../img/logo.png" alt="logo"></div>
-            <div class="nav-menu">
-                <ul>
-                    <li><a href="../index.html" class="nav-link">INICIO</a></li>
-                    <li><a href="./tienda.html" class="nav-link"><i class="fa-solid fa-shop"></i>TIENDA</a></li>
-                    <li><a href="./contactanos.html" class="nav-link">CONTÁCTANOS</a></li>
-                </ul>
-            </div>
-            <div class="nav-icons">
-                <div class="user-login">
-                    <i class="fas fa-user"></i>
-                </div>
-                <div class="shopping-cart">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                </div>
-            </div>
-        </nav>
+      <nav>
+        <div class="nav-logo"><img src="../img/logo.png" alt="logo" /></div>
+        <div class="nav-menu">
+          <ul>
+            <li><a href="../index.html" class="nav-link">INICIO</a></li>
+            <li>
+              <a href="./tienda.html" class="nav-link"
+                ><i class="fa-solid fa-shop"></i>TIENDA</a
+              >
+            </li>
+            <li>
+              <a href="./contactanos.html" class="nav-link">CONTÁCTANOS</a>
+            </li>
+          </ul>
+        </div>
+        <div class="nav-icons">
+          <div class="user-login">
+            <i class="fas fa-user"></i>
+          </div>
+          <div class="shopping-cart">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+        </div>
+      </nav>
     </header>
     <main>
-
-        <div class="contact-page-container">
-            <div class="contact-page-container-left">
-                <h1>Contáctanos</h1>
-                <form class="contact-form">
-                    <div class="contact-form-box">
-                        <label for="contact-name">Nombre</label>
-                        <div class="input-box">
-                            <i class="fa-solid fa-user"></i>
-                            <input type="text" name="contact-name" id="contact-name">
-                        </div>
-                    </div>
-                    <div class="contact-form-box">
-                        <label for="contact-email">Email</label>
-                        <div class="input-box">
-                            <i class="fa-solid fa-envelope"></i>
-                            <input type="email" name="contact-email" id="contact-email">
-                        </div>
-                    </div>
-                    <div class="contact-form-box">
-                        <label for="contact-message">Mensaje</label>
-                        <textarea name="contact-message" id="contact-message" cols="30" rows="8"></textarea>
-                    </div>
-                    <button type="submit" class="btn-send-contact">Enviar mensaje <i class="fa-solid fa-paper-plane"></i></button>
-                </form>
+      <div class="contact-page-container">
+        <div class="contact-page-container-left">
+          <h1>Contáctanos</h1>
+          <form class="contact-form">
+            <div class="contact-form-box name">
+              <label for="contact-name">Nombre</label>
+              <div class="input-box">
+                <i class="fa-solid fa-user icon-field"></i>
+                <input type="text" name="contact-name" id="contact-name" />
+                <i class="fa-solid fa-check icon-valid"></i>
+                <i class="fa-solid fa-circle-exclamation icon-error"></i>
+              </div>
+              <p class="error-feedback">Ingrese al menos 3 caracteres</p>
             </div>
-            <div class="contact-page-container-right">
-                <figure data-aos="zoom-in-left" data-aos-duration="1000"><img src="../img/cat-holding-a-phone.png" alt="gato con un teléfono"></figure>
+            <div class="contact-form-box email">
+              <label for="contact-email">Email</label>
+              <div class="input-box">
+                <i class="fa-solid fa-envelope icon-field"></i>
+                <input type="email" name="contact-email" id="contact-email" />
+                <i class="fa-solid fa-check icon-valid"></i>
+                <i class="fa-solid fa-circle-exclamation icon-error"></i>
+              </div>
+              <p class="error-feedback">Ingrese un email válido</p>
             </div>
+            <div class="contact-form-box message">
+              <label for="contact-message">Mensaje</label>
+              <div class="input-box">
+                <textarea
+                  name="contact-message"
+                  id="contact-message"
+                  cols="30"
+                  rows="8"
+                ></textarea>
+                <i class="fa-solid fa-check icon-valid"></i>
+                <i class="fa-solid fa-circle-exclamation icon-error"></i>
+              </div>
+              <p class="error-feedback">Ingrese al menos 10 caracteres</p>
+            </div>
+            <button type="submit" class="btn-send-contact">
+              Enviar mensaje <i class="fa-solid fa-paper-plane"></i>
+            </button>
+          </form>
         </div>
+        <div class="contact-page-container-right">
+          <figure data-aos="zoom-in-left" data-aos-duration="1000">
+            <img
+              src="../img/cat-holding-a-phone.png"
+              alt="gato con un teléfono"
+            />
+          </figure>
+        </div>
+      </div>
     </main>
     <footer>
-        <div class="footer-container">
-            <div class="footer-logo"><img src="../img/logo.png" alt="logo"></div>
-            <div class="footer-menu">
-                <h3>Navegación</h3>
-                <ul>
-                    <li><a href="../index.html">Inicio</a></li>
-                    <li><a href="./tienda.html">Tienda</a></li>
-                    <li><a href="./contactanos.html">Contáctanos</a></li>
-                </ul>
-            </div>
-            <div class="footer-payment-options">
-                <h3>Métodos de pago</h3>
-                <ul>
-                    <li><i class="fa-brands fa-cc-visa"></i></li>
-                    <li><i class="fa-brands fa-cc-mastercard"></i></li>
-                    <li><i class="fa-brands fa-cc-paypal"></i></li>
-                </ul>
-                <ul>
-                    <li><i class="fa-brands fa-cc-diners-club"></i></li>
-                    <li><i class="fa-brands fa-cc-amex"></i></li>
-                    <li><i class="fa-solid fa-qrcode"></i></li>
-                </ul>
-            </div>
-            <div class="footer-social-media">
-                <h3>Redes sociales</h3>
-                <ul>
-                    <li><a href="https://www.facebook.com/" target="_blank"><i class="fa-brands fa-facebook"></i></a></li>
-                    <li><a href="https://api.whatsapp.com/send?phone=51992293290&text=%22%C2%A1Hola+Pet+Paradise%21+%F0%9F%91%8B+Tengo+una+consulta.+%C2%BFMe+podr%C3%ADan+ayudar%3F+%F0%9F%90%BE" target="_blank"><i class="fa-brands fa-whatsapp"></i></a></li>
-                    <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a></li>
-                </ul>
-            </div>
+      <div class="footer-container">
+        <div class="footer-logo"><img src="../img/logo.png" alt="logo" /></div>
+        <div class="footer-menu">
+          <h3>Navegación</h3>
+          <ul>
+            <li><a href="../index.html">Inicio</a></li>
+            <li><a href="./tienda.html">Tienda</a></li>
+            <li><a href="./contactanos.html">Contáctanos</a></li>
+          </ul>
         </div>
-        <div class="footer-copyright">&copy; 2024 PetParadise. Todos los derechos reservados.</div>
+        <div class="footer-payment-options">
+          <h3>Métodos de pago</h3>
+          <ul>
+            <li><i class="fa-brands fa-cc-visa"></i></li>
+            <li><i class="fa-brands fa-cc-mastercard"></i></li>
+            <li><i class="fa-brands fa-cc-paypal"></i></li>
+          </ul>
+          <ul>
+            <li><i class="fa-brands fa-cc-diners-club"></i></li>
+            <li><i class="fa-brands fa-cc-amex"></i></li>
+            <li><i class="fa-solid fa-qrcode"></i></li>
+          </ul>
+        </div>
+        <div class="footer-social-media">
+          <h3>Redes sociales</h3>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/" target="_blank"
+                ><i class="fa-brands fa-facebook"></i
+              ></a>
+            </li>
+            <li>
+              <a
+                href="https://api.whatsapp.com/send?phone=51992293290&text=%22%C2%A1Hola+Pet+Paradise%21+%F0%9F%91%8B+Tengo+una+consulta.+%C2%BFMe+podr%C3%ADan+ayudar%3F+%F0%9F%90%BE"
+                target="_blank"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/" target="_blank"
+                ><i class="fab fa-instagram"></i
+              ></a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2024 PetParadise. Todos los derechos reservados.
+      </div>
     </footer>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init();
+      AOS.init();
     </script>
     <script type="module" src="../js/contactanos.js"></script>
-</body>
+  </body>
 </html>
