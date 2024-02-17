@@ -1,6 +1,7 @@
 import { Shop } from "./models/shop.js";
 import { ShoppingCart } from "./models/shoppingCart.js";
 import { activeState } from "./functions/activeState.js";
+import { loadFiltersChecked, searchProduct } from "./functions/shopFilters.js";
 
 //SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
@@ -28,36 +29,7 @@ const shoppingCart = new ShoppingCart();
 
 activeState();
 
-function loadFiltersChecked(){
-  if(shop.filterIsActive()){
-    const filters = JSON.parse(sessionStorage.getItem("filters"));
-
-    if(filters.orderSelected){
-      (filters.orderSelected === "DSC" ? orderByRadioButtons[0] : orderByRadioButtons[1]).checked = true;
-    }
-    
-    if(filters.categoriesSelected.length){
-      if(filters.categoriesSelected.includes("clothes")) categoryCheckBoxes[0].checked = true;
-      if(filters.categoriesSelected.includes("accessories")) categoryCheckBoxes[1].checked = true;
-      if(filters.categoriesSelected.includes("toys")) categoryCheckBoxes[2].checked = true;
-      if(filters.categoriesSelected.includes("food")) categoryCheckBoxes[3].checked = true;
-    }
-
-    if(filters.minPrice){
-      minPriceInput.value = filters.minPrice;
-    }
-
-    if(filters.maxPrice){
-      maxPriceInput.value = filters.maxPrice;
-    }
-
-    if(filters.searchByName){
-      searchBarInput.value = filters.searchByName;
-    }
-  }
-}
-
-loadFiltersChecked();
+loadFiltersChecked(shop, orderByRadioButtons, categoryCheckBoxes);
 
 // SHOPPING CART
 
@@ -72,12 +44,6 @@ btnCloseCart.addEventListener("click", () => {
 });
 
 //SEARCH BAR
-
-function searchProduct(){
-  const text = searchBarInput.value.trim();
-  shop.searchByName = text;
-  shop.filterProducts();
-}
 
 searchBarInput.addEventListener("keyup", (event) => {
   if(event.key === "Enter" || !searchBarInput.value) searchProduct();
