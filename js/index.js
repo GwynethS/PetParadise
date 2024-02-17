@@ -1,4 +1,5 @@
-import { ShoppingCart } from "./classes/shoppingCart.js";
+import { ShoppingCart } from "./models/shoppingCart.js";
+import { activeState } from "./functions/activeState.js";
 
 // SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
@@ -24,6 +25,8 @@ function setCategoryShopFilters(category){
 }
 
 const shoppingCart = new ShoppingCart();
+
+activeState();
 
 // SHOPPING CART
 shoppingCartIconNav.addEventListener("click", () => {

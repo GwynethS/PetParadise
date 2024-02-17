@@ -20,7 +20,8 @@ export class Shop {
     this.searchByName =
       JSON.parse(sessionStorage.getItem("filters"))?.searchByName || "";
     this.currentPage = 1;
-    this.nPages = Math.ceil(stockProducts.length / 16);
+    this.productsPerPage = 12;
+    this.nPages = Math.ceil(stockProducts.length / this.productsPerPage);
 
     if (this.filterIsActive()) this.filterProducts();
     else this.showProducts();
@@ -55,7 +56,7 @@ export class Shop {
     this.nPages = Math.ceil(
       (this.filterProducts.length == 0
         ? this.products.length
-        : this.filterProducts.length) / 16
+        : this.filterProducts.length) / this.productsPerPage
     );
   }
 
@@ -63,9 +64,9 @@ export class Shop {
     const productCards = document.querySelectorAll(".product-card");
     productCards.forEach((card) => card.remove());
 
-    const startIndex = (this.currentPage - 1) * 16;
-    const endIndex = startIndex + 16;
-    const productsPerPage = (
+    const startIndex = (this.currentPage - 1) * this.productsPerPage;
+    const endIndex = startIndex + this.productsPerPage;
+    const productsPerPageList = (
       this.filterProductsList.length == 0
         ? this.products
         : this.filterProductsList
@@ -75,10 +76,10 @@ export class Shop {
       (this.filterProductsList.length == 0
         ? this.products
         : this.filterProductsList
-      ).length / 16
+      ).length / this.productsPerPage
     );
 
-    productsPerPage.forEach((product) => {
+    productsPerPageList.forEach((product) => {
       let div = document.createElement("div");
       div.classList.add("product-card");
       div.innerHTML = `

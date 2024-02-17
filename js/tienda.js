@@ -1,6 +1,6 @@
-import { Shop } from "./classes/shop.js";
-import { ShoppingCart } from "./classes/shoppingCart.js";
-
+import { Shop } from "./models/shop.js";
+import { ShoppingCart } from "./models/shoppingCart.js";
+import { activeState } from "./functions/activeState.js";
 
 //SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
@@ -25,6 +25,8 @@ const btnSearchBar = document.getElementById("btn-search-bar");
 
 const shop = new Shop();
 const shoppingCart = new ShoppingCart();
+
+activeState();
 
 function loadFiltersChecked(){
   if(shop.filterIsActive()){

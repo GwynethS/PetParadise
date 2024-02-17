@@ -59,7 +59,7 @@ header nav .nav-menu ul li .nav-link i {
 }
 header nav .nav-menu ul li .nav-link.active {
   padding: 0 0.2rem 0.2rem 0.2rem;
-  border-bottom: 2px solid #b185a7;
+  border-bottom: 0.15rem solid #b185a7;
 }
 header nav .nav-menu ul li:hover {
   background-color: #c3a29e;
