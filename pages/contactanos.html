@@ -68,33 +68,33 @@
       <div class="contact-page-container">
         <div class="contact-page-container-left">
           <h1>Contáctanos</h1>
-          <form class="contact-form">
-            <div class="contact-form-box name">
-              <label for="contact-name">Nombre</label>
+          <form id="contact-form" class="contact-form">
+            <div id="name-field" class="contact-form-box">
+              <label for="input-name">Nombre</label>
               <div class="input-box">
                 <i class="fa-solid fa-user icon-field"></i>
-                <input type="text" name="contact-name" id="contact-name" />
+                <input type="text" name="contact-name" id="input-name" />
                 <i class="fa-solid fa-check icon-valid"></i>
                 <i class="fa-solid fa-circle-exclamation icon-error"></i>
               </div>
               <p class="error-feedback">Ingrese al menos 3 caracteres</p>
             </div>
-            <div class="contact-form-box email">
-              <label for="contact-email">Email</label>
+            <div id="email-field" class="contact-form-box">
+              <label for="input-email">Email</label>
               <div class="input-box">
                 <i class="fa-solid fa-envelope icon-field"></i>
-                <input type="email" name="contact-email" id="contact-email" />
+                <input type="email" name="contact-email" id="input-email" />
                 <i class="fa-solid fa-check icon-valid"></i>
                 <i class="fa-solid fa-circle-exclamation icon-error"></i>
               </div>
               <p class="error-feedback">Ingrese un email válido</p>
             </div>
-            <div class="contact-form-box message">
-              <label for="contact-message">Mensaje</label>
+            <div id="message-field" class="contact-form-box">
+              <label for="input-message">Mensaje</label>
               <div class="input-box">
                 <textarea
                   name="contact-message"
-                  id="contact-message"
+                  id="input-message"
                   cols="30"
                   rows="8"
                 ></textarea>
