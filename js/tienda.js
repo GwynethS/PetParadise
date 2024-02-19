@@ -106,33 +106,36 @@ btnClearCategoryFilter.addEventListener("click", () => {
   shop.filterProducts();
   btnClearCategoryFilter.style.display = "none";
 });
+
 // PRICE FILTER
 
 minPriceInput.addEventListener("change", () => {
   const minPrice = parseFloat(minPriceInput.value) || 0;
 
-  if (minPrice <= 0) minPriceInput.value = "";
-  if (minPrice < shop.maxPrice) {
+  if (minPrice >= 0 && minPrice < shop.maxPrice) {
     shop.minPrice = minPrice;
     shop.filterProducts();
-    btnClearPriceFilter.style.display = "block";
   } else {
     minPriceInput.value = shop.minPrice ? shop.minPrice.toString() : "";
   }
+
+  if (minPriceInput.value || maxPriceInput.value) btnClearPriceFilter.style.display = "block";
+  else btnClearPriceFilter.style.display = "none";
 });
 
 maxPriceInput.addEventListener("change", () => {
   const maxPrice = parseFloat(maxPriceInput.value) || Infinity;
 
-  if (maxPrice <= 0) maxPriceInput.value = "";
-  if (maxPrice > shop.minPrice) {
+  if (maxPrice > shop.minPrice && maxPriceInput.value !== "0") {
     shop.maxPrice = maxPrice;
     shop.filterProducts();
     btnClearPriceFilter.style.display = "block";
   } else {
-    maxPriceInput.value =
-      shop.maxPrice != Infinity ? shop.maxPrice.toString() : "";
+    maxPriceInput.value = shop.maxPrice != Infinity ? shop.maxPrice.toString() : "";
   }
+
+  if (minPriceInput.value || maxPriceInput.value) btnClearPriceFilter.style.display = "block";
+  else btnClearPriceFilter.style.display = "none";
 });
 
 btnClearPriceFilter.addEventListener("click", () => {

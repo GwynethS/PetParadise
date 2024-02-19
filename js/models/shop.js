@@ -7,8 +7,8 @@ export class Shop {
   constructor() {
     this.container = document.getElementById("shop-products-container");
     this.pagination = document.getElementById("pagination-shop");
-    this.products = stockProducts;
-    this.filterProductsList = [];
+    this.products = [...stockProducts];
+    this.filterProductsList = [...this.products];
     this.orderSelected = "";
     this.minPrice = 0;
     this.maxPrice = Infinity;
@@ -35,11 +35,7 @@ export class Shop {
 
     const startIndex = (this.currentPage - 1) * this.productsPerPage;
     const endIndex = startIndex + this.productsPerPage;
-    const productsPerPageList = (
-      this.filterProductsList.length == 0
-        ? this.products
-        : this.filterProductsList
-    ).slice(startIndex, endIndex);
+    const productsPerPageList = this.filterProductsList.slice(startIndex, endIndex);
 
     this.nPages = Math.ceil(
       (this.filterProductsList.length == 0
