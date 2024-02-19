@@ -9,47 +9,16 @@ export class Shop {
     this.pagination = document.getElementById("pagination-shop");
     this.products = stockProducts;
     this.filterProductsList = [];
-    this.orderSelected =
-      JSON.parse(sessionStorage.getItem("filters"))?.orderSelected || "";
-    this.minPrice =
-      JSON.parse(sessionStorage.getItem("filters"))?.minPrice || 0;
-    this.maxPrice =
-      JSON.parse(sessionStorage.getItem("filters"))?.maxPrice || Infinity;
-    this.categoriesSelected =
-      JSON.parse(sessionStorage.getItem("filters"))?.categoriesSelected || [];
-    this.searchByName =
-      JSON.parse(sessionStorage.getItem("filters"))?.searchByName || "";
+    this.orderSelected = "";
+    this.minPrice = 0;
+    this.maxPrice = Infinity;
+    this.categoriesSelected = JSON.parse(sessionStorage.getItem("categorySelected")) || [];
+    this.searchByName = "";
     this.currentPage = 1;
     this.productsPerPage = 12;
-    this.nPages = Math.ceil(stockProducts.length / this.productsPerPage);
+    this.nPages = Math.ceil(this.products.length / this.productsPerPage);
 
-    if (this.filterIsActive()) this.filterProducts();
-    else this.showProducts();
-  }
-
-  filterIsActive() {
-    if (
-      this.orderSelected ||
-      this.minPrice ||
-      this.maxPrice != Infinity ||
-      this.categoriesSelected.length ||
-      this.searchByName
-    )
-      return true;
-    else return false;
-  }
-
-  saveFiltersInSessionStorage() {
-    sessionStorage.setItem(
-      "filters",
-      JSON.stringify({
-        orderSelected: this.orderSelected,
-        minPrice: this.minPrice,
-        maxPrice: this.maxPrice,
-        categoriesSelected: this.categoriesSelected,
-        searchByName: this.searchByName,
-      })
-    );
+    this.categoriesSelected.length ? this.filterProducts() : this.showProducts();
   }
 
   updateNPages() {
@@ -132,7 +101,6 @@ export class Shop {
     }
 
     this.filterProductsList = productList;
-    this.saveFiltersInSessionStorage();
     this.showProducts();
   }
 }

@@ -27,7 +27,7 @@ btnCloseCart.addEventListener("click", () => {
 });
 
 // CATEGORY CARDS
-cardClothes.addEventListener("click", () => setCategoryShopFilters('clothes'));
-cardAccessories.addEventListener("click", () => setCategoryShopFilters('accessories'));
-cardToys.addEventListener("click", () => setCategoryShopFilters('toys'));
-cardFood.addEventListener("click", () => setCategoryShopFilters('food'));
+cardClothes.addEventListener("click", () => setCategoryShopFilters(['clothes']));
+cardAccessories.addEventListener("click", () => setCategoryShopFilters(['accessories']));
+cardToys.addEventListener("click", () => setCategoryShopFilters(['toys']));
+cardFood.addEventListener("click", () => setCategoryShopFilters(['food']));
