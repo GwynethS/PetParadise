@@ -42,12 +42,28 @@
           <div class="user-login">
             <i class="fas fa-user"></i>
           </div>
-          <div class="shopping-cart">
+          <div id="shopping-cart-icon-nav" class="shopping-cart">
             <i class="fa-solid fa-cart-shopping"></i>
           </div>
         </div>
       </nav>
     </header>
+    <section id="cart-block-container" class="cart-block-container">
+      <div id="cart-block" class="cart-block">
+          <div class="cart-header">
+              <h3>Mi carrito</h3>
+              <button id="btn-close-cart" ><i class="fa-solid fa-xmark"></i></button>
+          </div>
+          <div id="cart-items-container" class="cart-items-container"></div>
+          <div class="cart-total">
+              <p>Total</p>
+              <p id="cart-total-price">S/. 0</p>
+          </div>
+          <div class="cart-buttons">
+              <button id="btn-checkout">Checkout</button>
+          </div>
+      </div>
+  </section>
     <main>
       <div class="contact-page-container">
         <div class="contact-page-container-left">
