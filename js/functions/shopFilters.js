@@ -28,7 +28,7 @@ export function loadCategoryFilterChecked(categoryCheckBoxes, btnClearCategoryFi
   sessionStorage.removeItem("categorySelected");
 }
 
-export function searchProduct() {
+export function searchProduct(shop, searchBarInput) {
   const text = searchBarInput.value.trim();
   shop.searchByName = text;
   shop.filterProducts();

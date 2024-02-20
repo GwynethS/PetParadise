@@ -7,18 +7,22 @@ export class Shop {
   constructor() {
     this.container = document.getElementById("shop-products-container");
     this.pagination = document.getElementById("pagination-shop");
+    this.noFindedProducts = document.getElementById("no-finded-products");
     this.products = [...stockProducts];
     this.filterProductsList = [...this.products];
     this.orderSelected = "";
     this.minPrice = 0;
     this.maxPrice = Infinity;
-    this.categoriesSelected = JSON.parse(sessionStorage.getItem("categorySelected")) || [];
+    this.categoriesSelected =
+      JSON.parse(sessionStorage.getItem("categorySelected")) || [];
     this.searchByName = "";
     this.currentPage = 1;
     this.productsPerPage = 12;
     this.nPages = Math.ceil(this.products.length / this.productsPerPage);
 
-    this.categoriesSelected.length ? this.filterProducts() : this.showProducts();
+    this.categoriesSelected.length
+      ? this.filterProducts()
+      : this.showProducts();
   }
 
   updateNPages() {
@@ -35,19 +39,30 @@ export class Shop {
 
     const startIndex = (this.currentPage - 1) * this.productsPerPage;
     const endIndex = startIndex + this.productsPerPage;
-    const productsPerPageList = this.filterProductsList.slice(startIndex, endIndex);
 
-    this.nPages = Math.ceil(
-      (this.filterProductsList.length == 0
-        ? this.products
-        : this.filterProductsList
-      ).length / this.productsPerPage
-    );
+    if (!this.filterProductsList.length) {
+      this.noFindedProducts.style.display = "flex";
+      this.pagination.style.display = "none";
+    } else {
+      this.noFindedProducts.style.display = "none";
+      this.pagination.style.display = "flex";
+      
+      const productsPerPageList = this.filterProductsList.slice(
+        startIndex,
+        endIndex
+      );
 
-    productsPerPageList.forEach((product) => {
-      let div = document.createElement("div");
-      div.classList.add("product-card");
-      div.innerHTML = `
+      this.nPages = Math.ceil(
+        (this.filterProductsList.length == 0
+          ? this.products
+          : this.filterProductsList
+        ).length / this.productsPerPage
+      );
+
+      productsPerPageList.forEach((product) => {
+        let div = document.createElement("div");
+        div.classList.add("product-card");
+        div.innerHTML = `
         <figure><img src=${product.imgUrl}></figure>
         <div class="product-info">
             <h4>${product.name}</h4>
@@ -55,12 +70,15 @@ export class Shop {
             <button id="btn-add-cart-${product.id}" class="btn-add-cart">Agregar</button>
         </div>
       `;
-      this.container.insertBefore(div, this.pagination);
-      let buttonAddCart = document.getElementById(`btn-add-cart-${product.id}`);
-      buttonAddCart.addEventListener("click", () =>
-        shoppingCart.addProduct(product)
-      );
-    });
+        this.container.insertBefore(div, this.pagination);
+        let buttonAddCart = document.getElementById(
+          `btn-add-cart-${product.id}`
+        );
+        buttonAddCart.addEventListener("click", () =>
+          shoppingCart.addProduct(product)
+        );
+      });
+    }
   }
 
   searchProductById(id) {
