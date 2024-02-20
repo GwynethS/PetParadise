@@ -9,6 +9,7 @@ import {
 //SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
 const btnCloseCart = document.getElementById("btn-close-cart");
+const btnCheckout = document.getElementById("btn-checkout");
 
 //PAGINATION ELEMENTS
 const previusPageProducts = document.getElementById(
@@ -54,9 +55,9 @@ shoppingCartIconNav.addEventListener("click", () => {
   shoppingCart.showCartTotalPayment();
 });
 
-btnCloseCart.addEventListener("click", () => {
-  shoppingCart.closeCart();
-});
+btnCloseCart.addEventListener("click", () => shoppingCart.closeCart());
+
+btnCheckout.addEventListener("click", () => shoppingCart.onCheckout());
 
 //SEARCH BAR
 

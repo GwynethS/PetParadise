@@ -5,6 +5,7 @@ import { validPattern, validForm, resetForm } from "./functions/form.js";
 // SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
 const btnCloseCart = document.getElementById("btn-close-cart");
+const btnCheckout = document.getElementById("btn-checkout");
 
 // FORM ELEMENTS
 const contactForm = document.getElementById("contact-form");
@@ -32,9 +33,9 @@ shoppingCartIconNav.addEventListener("click", () => {
   shoppingCart.showCartTotalPayment();
 });
 
-btnCloseCart.addEventListener("click", () => {
-  shoppingCart.closeCart();
-});
+btnCloseCart.addEventListener("click", () => shoppingCart.closeCart());
+
+btnCheckout.addEventListener("click", () => shoppingCart.onCheckout());
 
 // CONTACT FORM
 

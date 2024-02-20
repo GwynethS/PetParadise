@@ -5,6 +5,7 @@ import { setCategoryShopFilters } from "./functions/shopFilters.js";
 // SHOPPING CART ELEMENTS
 const shoppingCartIconNav = document.getElementById("shopping-cart-icon-nav");
 const btnCloseCart = document.getElementById("btn-close-cart");
+const btnCheckout = document.getElementById("btn-checkout");
 
 // CATEGORY CARD ELEMENTS
 const cardClothes = document.getElementById("card-clothes");
@@ -22,12 +23,16 @@ shoppingCartIconNav.addEventListener("click", () => {
   shoppingCart.showCartTotalPayment();
 });
 
-btnCloseCart.addEventListener("click", () => {
-  shoppingCart.closeCart();
-});
+btnCloseCart.addEventListener("click", () => shoppingCart.closeCart());
+
+btnCheckout.addEventListener("click", () => shoppingCart.onCheckout());
 
 // CATEGORY CARDS
-cardClothes.addEventListener("click", () => setCategoryShopFilters(['clothes']));
-cardAccessories.addEventListener("click", () => setCategoryShopFilters(['accessories']));
-cardToys.addEventListener("click", () => setCategoryShopFilters(['toys']));
-cardFood.addEventListener("click", () => setCategoryShopFilters(['food']));
+cardClothes.addEventListener("click", () =>
+  setCategoryShopFilters(["clothes"])
+);
+cardAccessories.addEventListener("click", () =>
+  setCategoryShopFilters(["accessories"])
+);
+cardToys.addEventListener("click", () => setCategoryShopFilters(["toys"]));
+cardFood.addEventListener("click", () => setCategoryShopFilters(["food"]));

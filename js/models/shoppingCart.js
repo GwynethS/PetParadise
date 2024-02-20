@@ -54,8 +54,6 @@ export class ShoppingCart {
 
     const newCartIconValue = Number(this.shopingCartIconQuantity.value) + 1;
     this.updateShoppingCartIconQuantity(newCartIconValue);
-    this.showCartProducts();
-    this.showCartTotalPayment();
     this.saveInLocalStorage();
   }
 
@@ -67,12 +65,6 @@ export class ShoppingCart {
     if (productIndex != -1) {
       this.products.splice(productIndex, 1);
     }
-  }
-
-  onCheckout() {
-    this.products = [];
-    this.totalPayment = 0;
-    alert("Gracias por tu compra.");
   }
 
   updateQuantityProducts(div, inputValue, product){
@@ -166,5 +158,14 @@ export class ShoppingCart {
     );
 
     this.cartTotalPriceElement.innerText = `S/. ${this.totalPayment}`;
+  }
+
+  onCheckout(){
+    this.products = [];
+    this.shopingCartIconQuantity.value = 0;
+    localStorage.removeItem("cartProducts");
+    localStorage.setItem("cart-icon-quantity", this.shopingCartIconQuantity.value);
+    this.closeCart();
+    alert("Gracias por tu compra!");
   }
 }
