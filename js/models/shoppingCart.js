@@ -1,9 +1,11 @@
 export class ShoppingCart {
   constructor() {
+    this.shopingCartIconQuantity = document.getElementById("shopping-cart-icon-quantity");
+    this.shopingCartIconQuantity.value = localStorage.getItem("cart-icon-quantity") || 0;
     this.cartBlockContainer = document.getElementById("cart-block-container");
     this.cartItemssContainer = document.getElementById("cart-items-container");
     this.cartTotalPriceElement = document.getElementById("cart-total-price");
-    this.products = this.getProductsFormSessionStorage();
+    this.products = this.getProductsFromLocalStorage();
     this.totalPayment = 0;
   }
 
@@ -15,16 +17,21 @@ export class ShoppingCart {
     this.cartBlockContainer.style.display = "none";
   }
 
-  saveInSessionStorage(){
-    sessionStorage.setItem("cartProducts", JSON.stringify(this.products));
+  saveInLocalStorage(){
+    localStorage.setItem("cartProducts", JSON.stringify(this.products));
+    localStorage.setItem("cart-icon-quantity", this.shopingCartIconQuantity.value);
   }
 
-  getProductsFormSessionStorage(){
-    return JSON.parse(sessionStorage.getItem("cartProducts")) || [];
+  getProductsFromLocalStorage(){
+    return JSON.parse(localStorage.getItem("cartProducts")) || [];
   }
 
   updateProducts(){
-    this.products = this.getProductsFormSessionStorage();
+    this.products = this.getProductsFromLocalStorage();
+  }
+
+  updateShoppingCartIconQuantity(newValue){
+    this.shopingCartIconQuantity.value = newValue;
   }
 
   addProduct(product) {
@@ -44,13 +51,18 @@ export class ShoppingCart {
 
       this.products.push(newProduct);
     }
+
+    const newCartIconValue = Number(this.shopingCartIconQuantity.value) + 1;
+    this.updateShoppingCartIconQuantity(newCartIconValue);
     this.showCartProducts();
     this.showCartTotalPayment();
-    this.saveInSessionStorage();
+    this.saveInLocalStorage();
   }
 
   removeProduct(product) {
     const productIndex = this.products.indexOf(product);
+    const newCartIconValue = Number(this.shopingCartIconQuantity.value) - product.quantity;
+    this.updateShoppingCartIconQuantity(newCartIconValue);
 
     if (productIndex != -1) {
       this.products.splice(productIndex, 1);
@@ -69,7 +81,7 @@ export class ShoppingCart {
 
     div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
     this.showCartTotalPayment();
-    this.saveInSessionStorage();
+    this.saveInLocalStorage();
   }
 
   showCartProducts() {
@@ -105,18 +117,34 @@ export class ShoppingCart {
       btnMinus.addEventListener("click", () => {
         if (inputProductQuantityValue > 1) {
           inputProductQuantity.value = --inputProductQuantityValue;
+
+          const newCartIconValue = Number(this.shopingCartIconQuantity.value) - 1;
+          this.updateShoppingCartIconQuantity(newCartIconValue);
           this.updateQuantityProducts(div, inputProductQuantityValue, product);
         }
       });
 
       btnPlus.addEventListener("click", () => {
         inputProductQuantity.value = ++inputProductQuantityValue;
+
+        const newCartIconValue = Number(this.shopingCartIconQuantity.value) + 1;
+        this.updateShoppingCartIconQuantity(newCartIconValue);
         this.updateQuantityProducts(div, inputProductQuantityValue, product);
       });
 
       inputProductQuantity.addEventListener("change", () =>{
-        inputProductQuantity.value = inputProductQuantityValue > 0 ? inputProductQuantityValue : 1;
-        this.updateQuantityProducts(div, inputProductQuantity, product);
+        const value = Number(inputProductQuantity.value);
+
+        if(value > 0){
+          inputProductQuantity.value = value;
+          inputProductQuantityValue = value;
+        }else{
+          inputProductQuantity.value = 1;
+          inputProductQuantityValue = 1;
+        }
+        const newCartIconValue = Number(this.shopingCartIconQuantity.value) + (inputProductQuantityValue - product.quantity);
+        this.updateShoppingCartIconQuantity(newCartIconValue);
+        this.updateQuantityProducts(div, inputProductQuantityValue, product);
       })
 
       let btnRemoveCartProduct = document.getElementById(`btn-remove-cart-product-${product.id}`);
@@ -125,7 +153,7 @@ export class ShoppingCart {
         this.removeProduct(product);
         div.remove();
         this.showCartTotalPayment();
-        this.saveInSessionStorage();
+        this.saveInLocalStorage();
       });
     });
     this.openCart();

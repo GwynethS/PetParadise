@@ -17,7 +17,7 @@ const previusPageProducts = document.getElementById(
 const nextPageProducts = document.getElementById("btn-next-page-products");
 const currentPageProducts = document.getElementById("current-page-products");
 
-//FILTER ELEMENTS
+// FILTER ELEMENTS
 const orderByRadioButtons = document.querySelectorAll(
   'input[name="order-by-list"]'
 );
@@ -36,6 +36,8 @@ const btnClearCategoryFilter = document.getElementById(
   "btn-clear-category-filter"
 );
 const btnClearPriceFilter = document.getElementById("btn-clear-price-filter");
+
+// INSTANCIAR CLASES
 
 const shop = new Shop();
 const shoppingCart = new ShoppingCart();

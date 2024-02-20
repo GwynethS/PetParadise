@@ -83,6 +83,7 @@ header {
       .user-login {
         margin: 0 1rem;
         i {
+          font-size: 1.5rem;
           transition: transform 0.5s ease;
           &:hover {
             cursor: pointer;
@@ -91,13 +92,29 @@ header {
         }
       }
       .shopping-cart {
+        position: relative;
         margin: 0 1rem;
         i {
           transition: transform 0.5s ease;
+          font-size: 1.5rem;
           &:hover {
             cursor: pointer;
             transform: scale(1.1);
           }
+        }
+        #shopping-cart-icon-quantity{
+          position: absolute;
+          top: 55%;
+          left: 55%;
+          background-color: $color-morado;
+          border-radius: 50%;
+          border: none;
+          width: 1.5rem;
+          height: 1.5rem;
+          font-size: 0.8rem;
+          color: #ffffff;
+          font-weight: 600;
+          text-align: center;
         }
       }
     }

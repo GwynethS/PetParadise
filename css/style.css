@@ -79,6 +79,7 @@ header nav .nav-icons .user-login {
   margin: 0 1rem;
 }
 header nav .nav-icons .user-login i {
+  font-size: 1.5rem;
   transition: transform 0.5s ease;
 }
 header nav .nav-icons .user-login i:hover {
@@ -86,14 +87,30 @@ header nav .nav-icons .user-login i:hover {
   transform: scale(1.1);
 }
 header nav .nav-icons .shopping-cart {
+  position: relative;
   margin: 0 1rem;
 }
 header nav .nav-icons .shopping-cart i {
   transition: transform 0.5s ease;
+  font-size: 1.5rem;
 }
 header nav .nav-icons .shopping-cart i:hover {
   cursor: pointer;
   transform: scale(1.1);
+}
+header nav .nav-icons .shopping-cart #shopping-cart-icon-quantity {
+  position: absolute;
+  top: 55%;
+  left: 55%;
+  background-color: #b185a7;
+  border-radius: 50%;
+  border: none;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 0.8rem;
+  color: #ffffff;
+  font-weight: 600;
+  text-align: center;
 }
 
 footer {
