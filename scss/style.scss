@@ -102,7 +102,7 @@ header {
             transform: scale(1.1);
           }
         }
-        #shopping-cart-icon-quantity{
+        #shopping-cart-icon-quantity {
           position: absolute;
           top: 55%;
           left: 55%;
@@ -195,4 +195,4 @@ footer {
   }
 }
 
-@import "index.scss", "shop.scss", "contact.scss", "cart.scss";
+@import "index.scss", "shop.scss", "contact.scss", "cart.scss", "alert.scss";

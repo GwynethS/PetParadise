@@ -944,4 +944,12 @@ footer .footer-copyright {
   transform: scale(1.1);
 }
 
+.alert-popup {
+  border-radius: 1rem;
+}
+
+.alter-btn-cancel {
+  order: -1;
+}
+
 /*# sourceMappingURL=style.css.map */

@@ -63,7 +63,40 @@ contactForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
   if (validForm(fields)) {
-    alert("Se envió el formulario!");
-    resetForm(inputs, fields);
+    Swal.fire({
+      title: "¿Estás seguro de que quieres enviar el formulario?",
+      text: "No podrás revertir esta acción",
+      icon: "warning",
+      iconColor: "#c3a29e",
+      showCancelButton: true,
+      cancelButtonColor: "#b0b0b0",
+      confirmButtonColor: "#b185a7",
+      confirmButtonText: "Enviar",
+      cancelButtonText: "Cancelar",
+      customClass: {
+        popup: "alert-popup",
+        actions: "alert-actions",
+        cancelButton: "alter-btn-cancel",
+      },
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "¡Enviado!",
+          text: "Se envió el formulario correctamente",
+          icon: "success",
+          iconColor: "#c3a29e",
+          showConfirmButton: false,
+          timer: 2000,
+          customClass: {
+            popup: "alert-popup",
+          },
+        });
+        resetForm(inputs, fields);
+      }
+    });
+  }else{
+    fields.forEach(field => {
+      if (!field.classList.contains("valid")) field.classList.add("error");
+    });
   }
 });
