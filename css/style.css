@@ -760,7 +760,7 @@ footer .footer-copyright {
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 2000;
+  z-index: 1000;
   background-color: rgba(0, 0, 0, 0.227);
 }
 .cart-block-container .cart-block {
@@ -946,6 +946,7 @@ footer .footer-copyright {
 
 .alert-popup {
   border-radius: 1rem;
+  z-index: 2000;
 }
 
 .alter-btn-cancel {

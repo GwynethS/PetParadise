@@ -1,7 +1,10 @@
 export class ShoppingCart {
   constructor() {
-    this.shopingCartIconQuantity = document.getElementById("shopping-cart-icon-quantity");
-    this.shopingCartIconQuantity.value = localStorage.getItem("cart-icon-quantity") || 0;
+    this.shopingCartIconQuantity = document.getElementById(
+      "shopping-cart-icon-quantity"
+    );
+    this.shopingCartIconQuantity.value =
+      localStorage.getItem("cart-icon-quantity") || 0;
     this.cartBlockContainer = document.getElementById("cart-block-container");
     this.cartItemssContainer = document.getElementById("cart-items-container");
     this.cartTotalPriceElement = document.getElementById("cart-total-price");
@@ -17,20 +20,23 @@ export class ShoppingCart {
     this.cartBlockContainer.style.display = "none";
   }
 
-  saveInLocalStorage(){
+  saveInLocalStorage() {
     localStorage.setItem("cartProducts", JSON.stringify(this.products));
-    localStorage.setItem("cart-icon-quantity", this.shopingCartIconQuantity.value);
+    localStorage.setItem(
+      "cart-icon-quantity",
+      this.shopingCartIconQuantity.value
+    );
   }
 
-  getProductsFromLocalStorage(){
+  getProductsFromLocalStorage() {
     return JSON.parse(localStorage.getItem("cartProducts")) || [];
   }
 
-  updateProducts(){
+  updateProducts() {
     this.products = this.getProductsFromLocalStorage();
   }
 
-  updateShoppingCartIconQuantity(newValue){
+  updateShoppingCartIconQuantity(newValue) {
     this.shopingCartIconQuantity.value = newValue;
   }
 
@@ -41,7 +47,8 @@ export class ShoppingCart {
     if (productInCart) {
       const productInCartIndex = this.products.indexOf(productInCart);
       this.products[productInCartIndex].quantity += 1;
-      this.products[productInCartIndex].subTotal = productInCart.quantity * productInCart.price;
+      this.products[productInCartIndex].subTotal =
+        productInCart.quantity * productInCart.price;
     } else {
       const newProduct = {
         ...product,
@@ -59,7 +66,8 @@ export class ShoppingCart {
 
   removeProduct(product) {
     const productIndex = this.products.indexOf(product);
-    const newCartIconValue = Number(this.shopingCartIconQuantity.value) - product.quantity;
+    const newCartIconValue =
+      Number(this.shopingCartIconQuantity.value) - product.quantity;
     this.updateShoppingCartIconQuantity(newCartIconValue);
 
     if (productIndex != -1) {
@@ -67,11 +75,13 @@ export class ShoppingCart {
     }
   }
 
-  updateQuantityProducts(div, inputValue, product){
+  updateQuantityProducts(div, inputValue, product) {
     product.quantity = inputValue;
     product.subTotal = product.quantity * product.price;
 
-    div.querySelector(".product-subtotal p").textContent = `S/. ${product.subTotal}`;
+    div.querySelector(
+      ".product-subtotal p"
+    ).textContent = `S/. ${product.subTotal}`;
     this.showCartTotalPayment();
     this.saveInLocalStorage();
   }
@@ -101,16 +111,21 @@ export class ShoppingCart {
 
       this.cartItemssContainer.append(div);
 
-      let btnMinus = document.getElementById(`btn-minus-quantity-${product.id}`);
+      let btnMinus = document.getElementById(
+        `btn-minus-quantity-${product.id}`
+      );
       let btnPlus = document.getElementById(`btn-plus-quantity-${product.id}`);
-      let inputProductQuantity = document.getElementById(`input-product-quantity-${product.id}`);
+      let inputProductQuantity = document.getElementById(
+        `input-product-quantity-${product.id}`
+      );
       let inputProductQuantityValue = Number(inputProductQuantity.value);
 
       btnMinus.addEventListener("click", () => {
         if (inputProductQuantityValue > 1) {
           inputProductQuantity.value = --inputProductQuantityValue;
 
-          const newCartIconValue = Number(this.shopingCartIconQuantity.value) - 1;
+          const newCartIconValue =
+            Number(this.shopingCartIconQuantity.value) - 1;
           this.updateShoppingCartIconQuantity(newCartIconValue);
           this.updateQuantityProducts(div, inputProductQuantityValue, product);
         }
@@ -124,22 +139,26 @@ export class ShoppingCart {
         this.updateQuantityProducts(div, inputProductQuantityValue, product);
       });
 
-      inputProductQuantity.addEventListener("change", () =>{
+      inputProductQuantity.addEventListener("change", () => {
         const value = Number(inputProductQuantity.value);
 
-        if(value > 0){
+        if (value > 0) {
           inputProductQuantity.value = value;
           inputProductQuantityValue = value;
-        }else{
+        } else {
           inputProductQuantity.value = 1;
           inputProductQuantityValue = 1;
         }
-        const newCartIconValue = Number(this.shopingCartIconQuantity.value) + (inputProductQuantityValue - product.quantity);
+        const newCartIconValue =
+          Number(this.shopingCartIconQuantity.value) +
+          (inputProductQuantityValue - product.quantity);
         this.updateShoppingCartIconQuantity(newCartIconValue);
         this.updateQuantityProducts(div, inputProductQuantityValue, product);
-      })
+      });
 
-      let btnRemoveCartProduct = document.getElementById(`btn-remove-cart-product-${product.id}`);
+      let btnRemoveCartProduct = document.getElementById(
+        `btn-remove-cart-product-${product.id}`
+      );
 
       btnRemoveCartProduct.addEventListener("click", () => {
         this.removeProduct(product);
@@ -160,12 +179,47 @@ export class ShoppingCart {
     this.cartTotalPriceElement.innerText = `S/. ${this.totalPayment}`;
   }
 
-  onCheckout(){
-    this.products = [];
-    this.shopingCartIconQuantity.value = 0;
-    localStorage.removeItem("cartProducts");
-    localStorage.setItem("cart-icon-quantity", this.shopingCartIconQuantity.value);
-    this.closeCart();
-    alert("Gracias por tu compra!");
+  onCheckout() {
+    if (this.products.length) {
+      Swal.fire({
+        title: "Estás a punto de realizar tu pedido",
+        text: " ¿Listo para continuar?",
+        icon: "warning",
+        iconColor: "#c3a29e",
+        showCancelButton: true,
+        cancelButtonColor: "#b0b0b0",
+        confirmButtonColor: "#b185a7",
+        confirmButtonText: "Continuar",
+        cancelButtonText: "Cancelar",
+        customClass: {
+          popup: "alert-popup",
+          actions: "alert-actions",
+          cancelButton: "alter-btn-cancel",
+        },
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: "¡Gracias por tu compra!",
+            text: "Tu pedido se ha realizado con éxito.",
+            icon: "success",
+            iconColor: "#c3a29e",
+            showConfirmButton: false,
+            timer: 2000,
+            customClass: {
+              popup: "alert-popup",
+            },
+          });
+
+          this.products = [];
+          this.shopingCartIconQuantity.value = 0;
+          localStorage.removeItem("cartProducts");
+          localStorage.setItem(
+            "cart-icon-quantity",
+            this.shopingCartIconQuantity.value
+          );
+          this.closeCart();
+        }
+      });
+    }
   }
 }
