@@ -8,8 +8,6 @@ export class Shop {
     this.container = document.getElementById("shop-products-container");
     this.pagination = document.getElementById("pagination-shop");
     this.noFindedProducts = document.getElementById("no-finded-products");
-    this.products = [...stockProducts];
-    this.filterProductsList = [...this.products];
     this.orderSelected = "";
     this.minPrice = 0;
     this.maxPrice = Infinity;
@@ -18,11 +16,29 @@ export class Shop {
     this.searchByName = "";
     this.currentPage = 1;
     this.productsPerPage = 12;
-    this.nPages = Math.ceil(this.products.length / this.productsPerPage);
 
+    this.init();
+  }
+
+  async init(){
+    this.products = await this.getStockProducts();
+    this.filterProductsList = [...this.products];
+    this.nPages = Math.ceil(this.products.length / this.productsPerPage);
+  
     this.categoriesSelected.length
       ? this.filterProducts()
       : this.showProducts();
+  }
+
+  async getStockProducts(){
+    try {
+      const response = await fetch("../data.json");
+      const data = await response.json();
+
+      return data;
+    } catch (error) {
+      return [];
+    }
   }
 
   updateNPages() {

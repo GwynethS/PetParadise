@@ -65,7 +65,7 @@ searchBarInput.addEventListener("keyup", (event) => {
   if (event.key === "Enter" || !searchBarInput.value) searchProduct(shop, searchBarInput);
 });
 
-btnSearchBar.addEventListener("click", searchProduct(shop, searchBarInput));
+btnSearchBar.addEventListener("click", () => searchProduct(shop, searchBarInput));
 
 // ORDER BY FILTER
 
