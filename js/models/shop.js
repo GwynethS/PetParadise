@@ -1,4 +1,3 @@
-import { stockProducts } from "../data/stockProducts.js";
 import { ShoppingCart } from "./shoppingCart.js";
 
 const shoppingCart = new ShoppingCart();
