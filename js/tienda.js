@@ -1,5 +1,5 @@
-import { Shop } from "./models/shop.js";
-import { ShoppingCart } from "./models/shoppingCart.js";
+import { Shop } from "./classes/shop.js";
+import { ShoppingCart } from "./classes/shoppingCart.js";
 import { activeState } from "./functions/activeState.js";
 import {
   loadCategoryFilterChecked,

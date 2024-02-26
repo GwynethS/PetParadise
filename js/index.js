@@ -1,4 +1,4 @@
-import { ShoppingCart } from "./models/shoppingCart.js";
+import { ShoppingCart } from "./classes/shoppingCart.js";
 import { activeState } from "./functions/activeState.js";
 import { setCategoryShopFilters } from "./functions/shopFilters.js";
 

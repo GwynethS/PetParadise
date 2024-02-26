@@ -58,6 +58,7 @@
         .category-card{
             text-align: center;
             &:hover{
+                cursor: pointer;
                 figure{
                     img{
                         transform: scale(1.1);

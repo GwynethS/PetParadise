@@ -233,6 +233,9 @@ footer .footer-copyright {
 .categories-container .category-row .category-card {
   text-align: center;
 }
+.categories-container .category-row .category-card:hover {
+  cursor: pointer;
+}
 .categories-container .category-row .category-card:hover figure img {
   transform: scale(1.1);
 }
