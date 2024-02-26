@@ -2,141 +2,141 @@
   {
     "id": 1,
     "name": "Abrigo de Invierno",
-    "price": 50,
+    "price": 61.80,
     "category": "clothes",
-    "imgUrl": "/PetParadise/img/category-clothes.jpg"
+    "imgUrl": "/PetParadise/img/products/abrigo-de-invierno.jpg"
   },
   {
     "id": 2,
     "name": "Collar Elegante",
-    "price": 20,
+    "price": 45.50,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/collar-elegante.jpg"
   },
   {
     "id": 3,
     "name": "Juguete Interactivo",
-    "price": 15,
+    "price": 37.20,
     "category": "toys",
-    "imgUrl": "/PetParadise/img/category-toys.jpg"
+    "imgUrl": "/PetParadise/img/products/juguete-interactivo.jpg"
   },
   {
     "id": 4,
-    "name": "Comida para gatos",
-    "price": 30,
+    "name": "Comida para perros Canbo",
+    "price": 153.67,
     "category": "food",
-    "imgUrl": "/PetParadise/img/category-food.jpg"
+    "imgUrl": "/PetParadise/img/products/comida-para-perros-canbo.jpg"
   },
   {
     "id": 5,
     "name": "Cama Suave y Cálida",
-    "price": 40,
+    "price": 280.75,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/cama-suave-y-calida.jpg"
   },
   {
     "id": 6,
     "name": "Arnés Deportivo",
-    "price": 25,
+    "price": 64.90,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/arnes-deportivo.jpg"
   },
   {
     "id": 7,
-    "name": "Pelota de Caucho Duradero",
-    "price": 12,
+    "name": "Pelota de Caucho",
+    "price": 15,
     "category": "toys",
-    "imgUrl": "/PetParadise/img/category-toys.jpg"
+    "imgUrl": "/PetParadise/img/products/pelota-de-caucho.jpg"
   },
   {
     "id": 8,
-    "name": "Alimento para Perros",
-    "price": 45,
+    "name": "Paté con pollo",
+    "price": 19.14,
     "category": "food",
-    "imgUrl": "/PetParadise/img/category-food.jpg"
+    "imgUrl": "/PetParadise/img/products/pate-con-pollo.jpeg"
   },
   {
     "id": 9,
     "name": "Chaqueta Reflectante",
-    "price": 55,
+    "price": 80.57,
     "category": "clothes",
-    "imgUrl": "/PetParadise/img/category-clothes.jpg"
+    "imgUrl": "/PetParadise/img/products/chaqueta-reflectante.jpg"
   },
   {
     "id": 10,
-    "name": "Rascador para Gatos",
-    "price": 28,
+    "name": "Cepillo con botón removedor",
+    "price": 19.90,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/cepillo-con-boton-removedor.jpg"
   },
   {
     "id": 11,
     "name": "Juguete de Cuerda",
-    "price": 18,
+    "price": 12,
     "category": "toys",
-    "imgUrl": "/PetParadise/img/category-toys.jpg"
+    "imgUrl": "/PetParadise/img/products/juguete-de-cuerda.jpg"
   },
   {
     "id": 12,
     "name": "Correa de Paseo",
-    "price": 30,
+    "price": 25.30,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/correa-de-paseo.jpg"
   },
   {
     "id": 13,
-    "name": "Comedero Automático",
-    "price": 60,
+    "name": "Stick sabor a tocino",
+    "price": 10.90,
     "category": "food",
-    "imgUrl": "/PetParadise/img/category-food.jpg"
+    "imgUrl": "/PetParadise/img/products/stick-sabor-tocino.jpg"
   },
   {
     "id": 14,
     "name": "Abrigo de Lana",
-    "price": 35,
+    "price": 50.40,
     "category": "clothes",
-    "imgUrl": "/PetParadise/img/category-clothes.jpg"
+    "imgUrl": "/PetParadise/img/products/abrigo-de-lana.jpg"
   },
   {
     "id": 15,
-    "name": "Casa para Roedores",
-    "price": 25,
+    "name": "Comedero y bebedero",
+    "price": 53.70,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/comedero-y-bebedero.jpg"
   },
   {
     "id": 16,
-    "name": "Bolso de Transporte",
-    "price": 40,
+    "name": "Bolso transportador",
+    "price": 38.60,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/bolso-transportador.jpg"
   },
   {
     "id": 17,
-    "name": "Snacks Naturales",
-    "price": 12,
+    "name": "Huesitos de leche",
+    "price": 7.90,
     "category": "food",
-    "imgUrl": "/PetParadise/img/category-food.jpg"
+    "imgUrl": "/PetParadise/img/products/huesitos-de-leche.jpg"
   },
   {
     "id": 18,
-    "name": "Chaleco Salvavidas",
+    "name": "Chaleco tejido",
     "price": 50,
     "category": "clothes",
-    "imgUrl": "/PetParadise/img/category-clothes.jpg"
+    "imgUrl": "/PetParadise/img/products/chaleco-tejido.jpg"
   },
   {
     "id": 19,
     "name": "Juguete Peluche",
-    "price": 15,
+    "price": 25.30,
     "category": "toys",
-    "imgUrl": "/PetParadise/img/category-toys.jpg"
+    "imgUrl": "/PetParadise/img/products/juguete-de-peluche.jpg"
   },
   {
     "id": 20,
-    "name": "Rascador de Sisal",
-    "price": 32,
+    "name": "Set de peluquería",
+    "price": 62.74,
     "category": "accessories",
-    "imgUrl": "/PetParadise/img/category-accessories.jpg"
+    "imgUrl": "/PetParadise/img/products/set-de-peluqueria.jpg"
   }
 ]

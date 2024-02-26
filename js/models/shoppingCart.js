@@ -81,7 +81,7 @@ export class ShoppingCart {
 
     div.querySelector(
       ".product-subtotal p"
-    ).textContent = `S/. ${product.subTotal}`;
+    ).textContent = `S/. ${(product.subTotal).toFixed(2)}`;
     this.showCartTotalPayment();
     this.saveInLocalStorage();
   }
@@ -95,7 +95,7 @@ export class ShoppingCart {
         <figure><img src="${product.imgUrl}"></figure>
         <div class="product-info">
             <p>${product.name}</p>
-            <p>S/. ${product.price}</p>
+            <p>S/. ${(product.price).toFixed(2)}</p>
         </div>
         <div class="product-quantity">
             <button id="btn-minus-quantity-${product.id}" class="btn-minus"><i class="fa-solid fa-minus"></i></button>
@@ -103,7 +103,7 @@ export class ShoppingCart {
             <button id="btn-plus-quantity-${product.id}" class="btn-plus"><i class="fa-solid fa-plus"></i></button>
         </div>
         <div class="product-subtotal">
-            <p>S/. ${product.subTotal}</p>
+            <p>S/. ${(product.subTotal).toFixed(2)}</p>
         </div>
         <div class="product-remove">
             <button id="btn-remove-cart-product-${product.id}"><i class="fa-solid fa-trash"></i></button>
@@ -176,7 +176,7 @@ export class ShoppingCart {
       0
     );
 
-    this.cartTotalPriceElement.innerText = `S/. ${this.totalPayment}`;
+    this.cartTotalPriceElement.innerText = `S/. ${(this.totalPayment).toFixed(2)}`;
   }
 
   onCheckout() {

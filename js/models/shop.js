@@ -81,7 +81,7 @@ export class Shop {
         <figure><img src=${product.imgUrl}></figure>
         <div class="product-info">
             <h4>${product.name}</h4>
-            <p> S/. ${product.price}</p>
+            <p> S/. ${(product.price).toFixed(2)}</p>
             <button id="btn-add-cart-${product.id}" class="btn-add-cart">Agregar</button>
         </div>
       `;
@@ -130,6 +130,7 @@ export class Shop {
     }
 
     this.filterProductsList = productList;
+    this.currentPage = 1;
     this.showProducts();
   }
 }

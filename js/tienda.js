@@ -62,10 +62,16 @@ btnCheckout.addEventListener("click", () => shoppingCart.onCheckout());
 //SEARCH BAR
 
 searchBarInput.addEventListener("keyup", (event) => {
-  if (event.key === "Enter" || !searchBarInput.value) searchProduct(shop, searchBarInput);
+  if (event.key === "Enter" || !searchBarInput.value) {
+    searchProduct(shop, searchBarInput);
+    currentPageProducts.value = 1;
+  }
 });
 
-btnSearchBar.addEventListener("click", () => searchProduct(shop, searchBarInput));
+btnSearchBar.addEventListener("click", () => {
+  searchProduct(shop, searchBarInput);
+  currentPageProducts.value = 1;
+});
 
 // ORDER BY FILTER
 
@@ -74,6 +80,7 @@ orderByRadioButtons.forEach((button) => {
     const selectedValue = event.target.id;
     shop.orderSelected = selectedValue;
     shop.filterProducts();
+    currentPageProducts.value = 1;
     btnClearSortFilter.style.display = "block";
   });
 });
@@ -82,6 +89,7 @@ btnClearSortFilter.addEventListener("click", () => {
   shop.orderSelected = "";
   orderByRadioButtons.forEach((radio) => (radio.checked = false));
   shop.filterProducts();
+  currentPageProducts.value = 1;
   btnClearSortFilter.style.display = "none";
 });
 
@@ -98,6 +106,7 @@ categoryCheckBoxes.forEach((checkbox) => {
 
     shop.categoriesSelected = marckedCheckboxes;
     shop.filterProducts();
+    currentPageProducts.value = 1;
     if (checkboxes.length) btnClearCategoryFilter.style.display = "block";
     else btnClearCategoryFilter.style.display = "none";
   });
@@ -107,6 +116,7 @@ btnClearCategoryFilter.addEventListener("click", () => {
   shop.categoriesSelected = [];
   categoryCheckBoxes.forEach((checkbox) => (checkbox.checked = false));
   shop.filterProducts();
+  currentPageProducts.value = 1;
   btnClearCategoryFilter.style.display = "none";
 });
 
@@ -118,11 +128,13 @@ minPriceInput.addEventListener("change", () => {
   if (minPrice >= 0 && minPrice < shop.maxPrice) {
     shop.minPrice = minPrice;
     shop.filterProducts();
+    currentPageProducts.value = 1;
   } else {
     minPriceInput.value = shop.minPrice ? shop.minPrice.toString() : "";
   }
 
-  if (minPriceInput.value || maxPriceInput.value) btnClearPriceFilter.style.display = "block";
+  if (minPriceInput.value || maxPriceInput.value)
+    btnClearPriceFilter.style.display = "block";
   else btnClearPriceFilter.style.display = "none";
 });
 
@@ -132,12 +144,15 @@ maxPriceInput.addEventListener("change", () => {
   if (maxPrice > shop.minPrice && maxPriceInput.value !== "0") {
     shop.maxPrice = maxPrice;
     shop.filterProducts();
+    currentPageProducts.value = 1;
     btnClearPriceFilter.style.display = "block";
   } else {
-    maxPriceInput.value = shop.maxPrice != Infinity ? shop.maxPrice.toString() : "";
+    maxPriceInput.value =
+      shop.maxPrice != Infinity ? shop.maxPrice.toString() : "";
   }
 
-  if (minPriceInput.value || maxPriceInput.value) btnClearPriceFilter.style.display = "block";
+  if (minPriceInput.value || maxPriceInput.value)
+    btnClearPriceFilter.style.display = "block";
   else btnClearPriceFilter.style.display = "none";
 });
 
@@ -147,6 +162,7 @@ btnClearPriceFilter.addEventListener("click", () => {
   minPriceInput.value = "";
   maxPriceInput.value = "";
   shop.filterProducts();
+  currentPageProducts.value = 1;
   btnClearPriceFilter.style.display = "none";
 });
 
