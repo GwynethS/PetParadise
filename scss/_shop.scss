@@ -259,7 +259,7 @@
       border: solid 1px #c2c2c2;
       border-radius: 1.5rem;
       width: calc(25% - 2rem);
-      height: 25rem;
+      height: 27rem;
       figure {
         border-radius: 1.5rem 1.5rem 0 0;
         height: 15rem;
@@ -278,9 +278,18 @@
         }
       }
       .product-info {
+        height: 12rem;
         text-align: center;
         line-height: 2;
-        padding: 1rem 0;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: start;
+        h4{
+          height: 4rem;
+          width: 100%;
+        }
         .btn-add-cart {
           margin-top: 1rem;
           padding: 0.7rem 1rem;

@@ -515,7 +515,7 @@ footer .footer-copyright {
   border: solid 1px #c2c2c2;
   border-radius: 1.5rem;
   width: calc(25% - 2rem);
-  height: 25rem;
+  height: 27rem;
 }
 .shop-container .shop-products-container .product-card figure {
   border-radius: 1.5rem 1.5rem 0 0;
@@ -533,9 +533,18 @@ footer .footer-copyright {
   transition: transform 0.5s ease;
 }
 .shop-container .shop-products-container .product-card .product-info {
+  height: 12rem;
   text-align: center;
   line-height: 2;
-  padding: 1rem 0;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
+}
+.shop-container .shop-products-container .product-card .product-info h4 {
+  height: 4rem;
+  width: 100%;
 }
 .shop-container .shop-products-container .product-card .product-info .btn-add-cart {
   margin-top: 1rem;
