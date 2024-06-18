@@ -22,7 +22,7 @@ PetParadise es una aplicación web interactiva desarrollada con HTML, CSS, Sass 
 
 ## 👩🏻‍💻 Uso
 
-1. Visita [PetParadise en GitHub Pages](https://tuusuario.github.io/petparadise/) para ver la aplicación desplegada.
+1. Visita [PetParadise en GitHub Pages](https://gwyneths.github.io/PetParadise/) para ver la aplicación desplegada.
 2. Navega por el catálogo de productos.
 3. Agrega productos al carrito de compras.
 4. Da *click* al botón ***checkout*** para completar la compra.
